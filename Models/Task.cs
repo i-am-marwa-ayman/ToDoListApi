@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ToDoList.Models {
     public enum TaskPriority {
@@ -7,17 +8,17 @@ namespace ToDoList.Models {
         High
     }
 
-    public class Task {
-        [Required]
+    public class ToDoTask {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id {set; get;}
         [Required]
         public string? Title {set; get;}
-        public string? Description {set; get;}
-        [Required]
-        public TaskPriority Priority {get; set;}
-        public List<string>? Tags {set; get;}
         [Required]
         public DateTime DueDate {get; set;}
+        [Required]
+        public TaskPriority Priority {get; set;}
+        public string? Description {set; get;}
+        public List<string>? Tags {set; get;}
     }
 }
