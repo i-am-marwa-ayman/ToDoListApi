@@ -1,0 +1,7 @@
+bin/
+obj/
+*.json
+Properties
+*.sln
+*.http
+*.csproj
