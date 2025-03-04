@@ -20,12 +20,12 @@ namespace ToDoList.controllers {
             List<ToDoTask>AllTasks = context.ToDoTasks.ToList();
             return Ok(AllTasks);
         }
-        [HttpGet("{id:int}",Name = "new task")]
+        [HttpGet("{id:int}")]
         public IActionResult GetTaskById([FromRoute] int id){
             ToDoTask? task = context.ToDoTasks.FirstOrDefault(e => e.Id == id);
             return task == null ? NotFound() : Ok(task);
         }
-        [HttpGet("{name:alpha}")]
+        [HttpGet("title/{title}")]
         public IActionResult GetTaskByTitle([FromRoute] string title){
             ToDoTask? task = context.ToDoTasks.FirstOrDefault(e => e.Title == title);
             return task == null ? NotFound() : Ok(task);
